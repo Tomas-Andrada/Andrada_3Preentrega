@@ -1,0 +1,41 @@
+{% extends "AppAndrada/padre.html" %}
+{% load static %}  
+
+{% block titulo %} Inicio web{% endblock %}
+
+{% block bienvenida %} Sectores {% endblock %}
+
+{% block contenido %}
+<h3>Formulario - Agregar productos:</h3>
+    
+{% if miFormulario.errors %}
+
+<p style="color: red;"> Están mal los datos, revisar</p>
+
+{% endif %}
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    
+    
+    <table>
+
+        {{ miFormulario.as_table }}
+
+
+    </table>
+
+
+    <input type="submit", value="Enviar">
+
+</form>
+<h5>{{ mensaje }}</h5>
+<h3>Sectores:</h3>
+<ul>
+    {% for sector in sectores %}
+        <li>{{ sector }}</li>
+        
+    {% endfor %}
+</ul>
+{% endblock %}

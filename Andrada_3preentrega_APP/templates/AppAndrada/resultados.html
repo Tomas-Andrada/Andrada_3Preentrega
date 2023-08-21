@@ -1,0 +1,15 @@
+{% extends "AppAndrada/padre.html" %}
+{% load static %}  
+
+{% block titulo %} Resultados {% endblock %}
+
+{% block bienvenida %} Resultados de los sectores buscados {% endblock %}
+{% block contenido %}
+<h3>Resultados:</h3>
+<ul>
+    {% for sector in sectores %}
+        <li>{{ sector }}</li>
+        
+    {% endfor %}
+</ul>
+{%  endblock %}

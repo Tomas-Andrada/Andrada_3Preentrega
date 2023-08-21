@@ -1,0 +1,40 @@
+{% extends "AppAndrada/padre.html" %}
+{% load static %}  
+
+{% block titulo %} Empleados {% endblock %}
+
+{% block bienvenida %} Empleados {% endblock %}
+
+{% block contenido %} 
+<h3>Formulario - Agregar empleado:</h3>
+    
+{% if miFormulario.errors %}
+
+<p style="color: red;"> Están mal los datos, revisar</p>
+
+{% endif %}
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    
+    
+    <table>
+
+        {{ miFormulario.as_table }}
+
+
+    </table>
+
+
+    <input type="submit", value="Enviar">
+
+</form>
+<h5>{{ mensaje }}</h5>
+<h3>Empleados:</h3>
+<ul>  
+    {% for empleado in empleados %}
+        <li>{{ empleado }}</li>  
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "AppAndrada/padre.html" %}
+{% load static %}  
+
+{% block titulo %} Productos{% endblock %}
+
+{% block bienvenida %} Productos {% endblock %}
+
+{% block contenido %} 
+<h3>Formulario - Agregar productos:</h3>
+    
+{% if miFormulario.errors %}
+
+<p style="color: red;"> Están mal los datos, revisar</p>
+
+{% endif %}
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    
+    
+    <table>
+
+        {{ miFormulario.as_table }}
+
+
+    </table>
+
+
+    <input type="submit", value="Enviar">
+
+</form>
+<h5>{{ mensaje }}</h5>
+<h3>Productos:</h3>
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

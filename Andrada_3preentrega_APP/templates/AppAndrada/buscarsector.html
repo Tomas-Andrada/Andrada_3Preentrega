@@ -1,0 +1,13 @@
+{% extends "AppAndrada/padre.html" %}
+{% load static %}  
+
+{% block titulo %} Encontra sectores {% endblock %}
+
+{% block bienvenida %} Buscador de sectores {% endblock %}
+
+{% block contenido %}
+<form action="{% url 'buscar' %}" method="GET">
+    <input type="number" name="sector" id="sector" placeholder="Inserte Sector">
+    <input type="submit" value="Buscar sector">
+</form>
+{%  endblock %}
