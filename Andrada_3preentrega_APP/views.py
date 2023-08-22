@@ -77,5 +77,4 @@ def buscar(request):
         sectores = Sector.objects.filter(numero_sector__icontains=numero)
         return render(request, "AppAndrada/resultados.html", {"sectores": sectores, "numero": numero})
     else:
-        respuesta = "No enviaste datos"
-        return HttpResponse(respuesta)
+        return render(request, "AppAndrada/buscarsector.html",{"mensaje":"No enviaste datos"})
